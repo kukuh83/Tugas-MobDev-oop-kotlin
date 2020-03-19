@@ -1,0 +1,104 @@
+1. Constructor Primary
+	
+	fun main(args: Array<String>){
+	    val person1 = Person("viola", 17)
+	    
+	    println("Nama Depan = ${person1.namaDepan}")
+	    println("Usia = ${person1.usia}")
+	}
+
+	class Person(val namaDepan: String, var usia: Int){
+	    
+	}
+
+
+2. Constructor Primary dan Inisialisasi Blok
+	
+	fun main(args: Array<String>){
+	    val person1 = Person("viola", 15)
+	}
+
+	class Person(nama: String, umurPerson: Int){
+	    val namaDepan: String
+	    val umur: Int
+	    
+	    // initialisasi block
+	    init {
+		namaDepan = nama.capitalize()
+		umur = umurPerson
+		
+		println("Nama Depan = $namaDepan")
+		println("Umur = $umur")
+	    }
+	}
+	
+
+3. Constructor Secondary
+
+	fun main(args: Array<String>) {
+	    val person1 = Person("viola", 15)
+	}
+
+	class Person(nama: String, umurPerson: Int) {
+	    val namaDepan: String
+	    var umur: Int
+	    
+	    // initialisasi blok
+	    init {
+		namaDepan = nama.capitalize()
+		umur = umurPerson
+		
+		println("Nama Depan = $namaDepan")
+		println("Umur = $umur")
+	    }
+	}
+
+
+4. Constructor Secondary AuthLog Log
+
+	fun main(args: Array<String>) {
+	    val p1 = AuthLog("Password")
+	}
+	open class Log{
+		var data: String = ""
+	    var numberOfData = 0
+	    
+	    constructor(data1:String){
+	    
+	    }
+	    constructor(data1:String, numberOfData1: Int){
+		data = data1
+		numberOfData = numberOfData1
+		println("$data: $numberOfData X")
+	    }
+	}
+	class AuthLog: Log{
+	    constructor(data1:String): this("Dari AuthLog -> " +data1, 10){
+		
+	    }
+	    constructor(data1: String, numberOfData1: Int): super(data1, numberOfData1){
+		
+	    }
+	} 
+
+
+5. 	fun main(args: Array<String>) {
+	    val p1 = AuthLog("Password Buruk")
+	}
+	open class Log{
+		var data: String = ""
+	    var nomorData = 0
+	    constructor(_data:String){
+	    }
+	    constructor(_data:String, _nomorData: Int){
+		data = _data
+		nomorData = _nomorData
+		println("$data: $nomorData kali")
+	    }
+	}
+	class AuthLog: Log{
+	    constructor(_data:String): this("Dari AuthLog -> " +_data, 10){       
+	    }
+	    constructor(_data: String, _nomorData: Int): super(_data, _nomorData){      
+	    }
+	} 

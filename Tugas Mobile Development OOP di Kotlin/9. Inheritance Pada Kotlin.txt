@@ -1,0 +1,61 @@
+1.	open class Personal(umur: Int, nama: String){
+	    init{
+		println("Nama Saya adalah $nama.")
+		println("Umur Saya adalah $umur.")
+	    }
+	}
+	class GuruMatematika(umur: Int, nama: String): Personal(umur, nama){
+	    fun mengajar(){
+		println("Saya mengajar di kelas SD.")
+	    }
+	}
+	class PesepakBola(umur: Int, nama: String): Personal(umur, nama){
+	    fun bermain() {
+		println("Saya bermain untuk PERSELA.")
+	    }
+	}
+	fun main(args: Array<String>) {
+	    val t1 = GuruMatematika(25, "Ridha")
+	    t1.mengajar()
+	    println()
+	    val f1 = PesepakBola(29, "Rafi")
+	    f1.bermain()
+	}
+
+2.	open class Personal(umur: Int, nama: String) {
+	    // Beberapa Kode
+	}
+
+	class PesepakBola(umur: Int, nama: String, klub: String): Personal(umur, nama){
+	    init{
+	      println("Pemain Bola $nama umur $umur dan bermain untuk $klub.")  
+	    }
+	    fun bermain(){
+		println("Saya sedang bermain bola.")
+	    }
+	}
+
+	fun main(args: Array<String>){
+	    val f1 = PesepakBola(29, "Rafi", "PERSELA")
+	}
+
+3.	fun main(args: Array<String>){
+	    val P1 = AuthLog("Password Buruk")
+	}
+	open class Log{
+	    var data: String = ""
+	    var nomorData = 0
+	    constructor(_data: String){
+	    }
+	    constructor(_data: String, _nomorData: Int) {
+		data = _data
+		nomorData = _nomorData
+		println("$data: $nomorData kali")	    }
+	}
+	class AuthLog: Log {
+	    constructor(_data: String): this("Dari AuthLog -> + $_data", 10) {
+	    }
+	    constructor(_data: String,_nomorData: Int): super(_data, _nomorData){
+		
+	    }
+	}

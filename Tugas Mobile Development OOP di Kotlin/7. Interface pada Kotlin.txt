@@ -1,0 +1,81 @@
+interface MyInterface{
+    val test : Int
+    fun hai(): String
+    fun hello(){
+        println("Hello Semua!!!")
+    }
+}
+
+class InterfaceImp: MyInterface{
+    override val test: Int = 25
+    override fun hai()="hai semua!!"
+}
+fun main(args: Array<String>){
+    val obj = InterfaceImp()
+    println("test=${obj.test}")
+    println("panggil hallo:")
+    
+    obj.hello()
+    println("Panggil dan print hai:")
+    println(obj.hai())
+}
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+interface InterfaceKu{
+    // Property dengan Implementasi
+    val prop: Int
+    get() = 23
+}
+
+class ImplementasiInterface: InterfaceKu{
+    //class body
+}
+
+fun main(args: Array<String>){
+    val obj = ImplementasiInterface()
+    println(obj.prop)
+}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Mengimplementasikan dua atau lebih interface dalam sebuah class
+
+interface A{
+    fun callMe(){
+        println("dariInterface A")
+    }
+}
+interface B{
+    fun callMeToo(){
+        println("dari interface B")
+    }
+}
+
+class Anakan: A, B
+fun main(args: Array<String>){
+    val obj=Anakan()
+    
+    obj.callMe()
+    obj.callMeToo()
+}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Multiple Interface
+
+interface A{
+    fun callMe(){
+        println("dariInterface A")
+    }
+}
+interface B{
+    fun callMe(){
+        println("dari interface B")
+    }
+}
+
+class C: A, B{
+    override fun callMe(){
+        super<A>.callMe()
+        super<B>.callMe()
+    }
+}
+fun main(args: Array<String>){   
+    val obj=C()
+    obj.callMe()
+}
